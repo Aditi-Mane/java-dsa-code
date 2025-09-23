@@ -22,8 +22,27 @@ public class LCM {
         }
         return lcm;
     }
+    //method 2: lcm = a*b / gcd(a,b)
+    public static int findLcm2(int a, int b){
+        int num1 = a;
+        int num2 = b;
+        while(a > 0 && b > 0){
+            if(a>b){
+                a = a % b;
+            } else {
+                b = b % a;
+            }
+        }
+        int gcd = 0;
+        if(a == 0){
+            gcd = b;
+        } else {
+            gcd = a;
+        }
+        return (num1*num2)/gcd;
+    }
     public static void main(String[] args) {
-        int lcm = LCM.findLcm(20, 40);
+        int lcm = LCM.findLcm2(4, 6);
         System.out.println(lcm);
     }
 }
