@@ -11,10 +11,18 @@ public class PrintNto1 {
         System.out.print(n+" ");
         printNum(i, n-1);
     }
+    //via. backtracking
+    static void printNum2(int i, int n){
+        if(i>n) return;
+        printNum2(i+1, n);
+        System.out.print(i+" ");
+        //after base condition is reached, then print statements are executed
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number to print from till 1: ");
         int n =sc.nextInt();
-        PrintNto1.printNum(1, n);
+        // PrintNto1.printNum(1, n);
+        PrintNto1.printNum2(1, n);
     }
 }
