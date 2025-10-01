@@ -2,6 +2,7 @@ package Sorting;
 
 import java.util.ArrayList;
 
+//Best, Worst & Average TC: O(n log n) ; SC: O(n)
 public class MergeSort {
     static void merge(int[] arr, int low, int mid, int high){
         ArrayList<Integer> list = new ArrayList<>();
