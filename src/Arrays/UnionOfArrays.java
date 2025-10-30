@@ -49,11 +49,15 @@ public class UnionOfArrays {
             }
         }
         while(i<arr.length){
-            list.add(arr[i]);
+            if(list.isEmpty() || list.get(list.size() - 1) != arr[i]){
+                list.add(arr[i]);
+            }
             i++;
         }
         while(j<arr2.length){
-            list.add(arr2[j]);
+            if(list.isEmpty() || list.get(list.size() - 1) != arr2[j]){
+                list.add(arr2[j]);
+            }
             j++;
         }
         int[] union = new int[list.size()];
@@ -64,7 +68,7 @@ public class UnionOfArrays {
     }
     public static void main(String[] args) {
         int[] arr = {1,1,2,3,3,4,5};
-        int[] arr2 = {1,2,3,4,6,7,8,9};
+        int[] arr2 = {1,2,3,4,6,7,7,8,8,9};
         union(arr, arr2);
         int[] union = union2(arr, arr2);
         System.out.println(Arrays.toString(union));

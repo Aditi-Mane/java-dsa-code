@@ -11,7 +11,7 @@ public class MissingNumber {
         for (int j : arr) {
             map.put(j, 1);
         }
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i <= n + 1; i++) {
             if (!map.containsKey(i)) {
                 return i;
             }
