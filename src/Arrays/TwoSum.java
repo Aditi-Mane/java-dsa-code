@@ -1,6 +1,7 @@
 package Arrays;
 
 import java.util.HashMap;
+import java.util.Arrays;
 
 public class TwoSum {
 
@@ -30,10 +31,26 @@ public class TwoSum {
         }
         return new int[]{};
     }
+
+    //If array is sorted: O(n) -> 2 pointer
+    static int[] twoSum3(int[] arr, int target){
+        int left = 0, right = arr.length-1;
+        while(left<right){
+            if(arr[left]+arr[right]>target){
+                right--;
+            } else if(arr[left]+arr[right]<target){
+                left++;
+            } else {
+                return new int[]{left,right};
+            }
+        }
+        return new int[]{};
+    }
+
     public static void main(String[] args) {
-        int[] arr = {23,12,2,3,32};
+        int[] arr = {2,3,12,23,32};
         int target = 14;
-        int[] nums = twoSum2(arr, target);
+        int[] nums = twoSum3(arr, target);
         System.out.println(nums[0]+" "+nums[1]);
     }
 }
