@@ -40,10 +40,33 @@ public class MajorityElement {
         }
         return -1;
     }
-
+    //Optimal approach (Boyer–Moore Majority Vote Algorithm):
+    static int major2(int[] arr){
+        int element = 0,count = 0,n=arr.length;
+        for (int i : arr) {
+            if (count == 0) {
+                count = 1;
+                element = i;
+            } else if (element == i) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+        int count1 = 0;
+        for (int j : arr) {
+            if (j == element) {
+                count1++;
+            }
+        }
+        if(count1>n/2){
+            return element;
+        }
+        return -1;
+    }
     public static void main(String[] args) {
         int[] arr = {3,3,3,3,1,2,2};
-        int count = major1(arr);
+        int count = major2(arr);
         System.out.println(count);
     }
 }
